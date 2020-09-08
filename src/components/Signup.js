@@ -6,13 +6,9 @@ export default class Signup extends Component {
     state =  {
         fname: "",
         lname: "", 
-        address: "",
-        phone: "",
         username: "",
         email: "",
         password: "",
-        password_confirm: "",
-        agreebox: ""
     }
 
     onChange = e => {
@@ -25,15 +21,11 @@ export default class Signup extends Component {
         .then(() => {
             console.log(this.state)
             this.setState({
-                fname: "",
-                lname: "", 
-                address: "",
-                phone: "",
+                first_name: "",
+                last_name: "", 
                 username: "",
                 email: "",
                 password: "",
-                password_confirm: "",
-                agreebox: ""
             })
         })
     }
@@ -42,49 +34,31 @@ export default class Signup extends Component {
             // Registration form 
             <div className="container"> 
                     <p className="register">Registration</p>
-                        <form className="grid-container">
+                        <form onSubmit={this.signUp} className="grid-container">
                             <div>
                                 <input type="text" name="fname" 
                                 value={this.state.fname} 
                                 onChange={this.onChange}
-                                placeholder="First Name *"/>
+                                placeholder="First Name *" required/>
                                 <input type="text" name="lname" 
                                 value={this.state.lname} 
                                 onChange={this.onChange}
-                                placeholder="Last Name *"/>
-                                <input type="text" name="address"
-                                value={this.state.address}
-                                onChange={this.onChange}
-                                onChange={this.onChange} 
-                                placeholder="Address *"/>
-                                <input type="text" name="phone"
-                                value={this.state.phone}
-                                onChange={this.onChange} 
-                                placeholder="Phone Number *"/>
-                                <input className="checkbox" name="agreebox"
-                                type="checkbox" value="Agree"/><span>I agree with the 
-                                <a href="/">Terms & Conditions</a></span>
-                            </div>
-                            <div>
-                                <input type="text" name="username"
+                                placeholder="Last Name *" required/>
+                                 <input type="text" name="username"
                                 value={this.state.username} 
                                 onChange={this.onChange}
-                                placeholder="Username *"/>
+                                placeholder="Username *" required/>
                                 <input type="text" name="email"
                                 value={this.state.email} 
                                 onChange={this.onChange}
-                                placeholder="Email *"/>
+                                placeholder="Email *" required/>
                                 <input type="text" name="password"
                                 value={this.state.password}
                                 onChange={this.onChange} 
-                                placeholder="Password"/>
-                                <input type="text" name="password_confirm"
-                                value={this.state.password_confirm}
-                                onChange={this.onChange} 
-                                placeholder="Confirm Password"/>
+                                placeholder="Password" required/>
+                                <button className="bttn">Create Account</button>
                             </div>
                         </form>
-                        <div><button onSubmit={this.signUp}>Create Account</button></div> 
             </div>  
         )
     }
