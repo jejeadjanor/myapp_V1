@@ -2,36 +2,18 @@ import React        from 'react';
 import InputField   from './InputField';
 import SubmitButton from './SubmitButton';
 import UserStore    from '../stores/UserStore';
-
-// EMAIL VALIDATION
-const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             email: '',
-            emailError: '',
             password: '',
             buttonDisabled: false
         }
-    }
-// THE CODE BELLOW CHECKS FOR EMAIL VALIDATION
-hannpdleTouchTap = () => {
-    if(this.state.email === '' || this.state.email == null){
-        this.setState({
-        emailError: "Email text field cannot be empty"
-        //document.getElementByid('emailError').innerHTML ="Email text field cannot be empty";
-    });
-    }
-    else if (!emailPattern.test(this.state.email) && this.state.email.length > 0) {
-        this.setState({
-        emailError: "Enter a valid email"
-        });
-    }
-} 
-
-// PROPERTY HERE REFERS TO THE 'Email/USERNAME' AND 'PASSWORD'
+    } 
+// PROPERTY HERE REFERS TO THE 'EMAIL' AND 'PASSWORD'
     setInputValue(property, val) {
         val = val.trim();
         if(val.length < 0){
@@ -41,7 +23,6 @@ hannpdleTouchTap = () => {
             [property]: val
         })
     }
-
     resetForm() {
         this.setState({
             email: '',
@@ -95,28 +76,27 @@ hannpdleTouchTap = () => {
 
         }
     }
-    render(){
-
-        
+    render(){  
     // USER INTERFACE FOR THE LOGIN FORM
         return(
             
-                <div className="LoginForm">
-                <div className='log'> Sign in to your account </div >
+            <div className="LoginForm">
+                <div className='log'> Sign into your account </div >
 
                 {/* THE INPUT FIELD FOR EMAIL ADDRESS */}
                     <InputField
-                        type = 'text'
-                        placeholder = 'Email'
+                        type = 'email'
+                        placeholder = 'Email *'
+                        required = 'True' 
                         value = { this.state.email ? this.state.email: ''}
                         onChange = { (val) => this.setInputValue('email', val)}
-
                 />
                 {/* THE INPUT FIELD FOR PASSWORD */}
         
                     <InputField
                         type = 'password'
-                        placeholder = 'Password'
+                        placeholder = 'Password *' 
+                        required = 'True' 
                         value = { this.state.password ? this.state.password: ''}
                         onChange = { (val) => this.setInputValue('password', val)}
                     />
@@ -124,20 +104,17 @@ hannpdleTouchTap = () => {
                     <SubmitButton
                         text = 'Sign in to your account'
                         disabled = { this.state.buttonDisabled}
-                        onClick = { () => this.hannpdleTouchTap()}
+                        onClick = { () => this.doLogin()}
                         />
-
-                            {/* <center><p id='emailError'>HELLO</p></center> */}
-  
                 {/* THE CODE BELLOW CREATES A HORIZONTAL LINE */}
-                    <hr></hr>
+                    <hr className='line'></hr>
                         
                         <div className= 'sign'>
                             Don't have an account? 
-                            <a href = {'reset.html'}> Sign Up!</a>
+                            <Link to = {'/'}> Sign Up!</Link>
                         </div>
-                </div>
-           
+            </div>
+            
         );
     }
 }
