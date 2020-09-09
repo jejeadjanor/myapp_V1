@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }
 
 .App-link {
@@ -54,28 +55,29 @@
 }
 
 input {
-  float: left; 
   width: 65%;
-  height: 38px;
+  height: 30px;
   border: 1px solid grey;
-  border-radius: 5px;
-  margin: 2% 0%;
+  margin: 2%;
+  color: black;
 }
 
  .bttn {
   background-color:  #006DE6;
   color: white;
-  width: 50%;
-  height: 40px;
+  width: 67%;
+  height: 30px;
   border: 1px solid rgb(255, 254, 254);
-  border-radius: 18px;
   margin: 2%;
   font-size: 18px;
+  padding-bottom: 30px;
+  padding-top: 10px;
 }
 
 .register {
   color:  #006DE6;
   font-size: 5ch;
+  text-align: center;
 }
 
 .checkbox {
@@ -88,5 +90,12 @@ input {
 span a {
   font-size: 12px !important;
   color: #006DE6 !important;
-} 
+}
+.header {
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12;
+}
+
+
 

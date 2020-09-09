@@ -9,9 +9,8 @@ import Signup from './components/Signup';
 
 class App extends React.Component{
 
-  // API CALLS
+  // API CALL TO CHECK IF THE USER IS LOGGED IN OR NOT WHEN THE COMPONENT IS MOUNTED WITH AN ERROR HANDLER AS WELL
   async componentDidMount(){
-    // TO CHECK IF THE USER IS LOGGED IN OR NOT WHEN THE COMPONENT IS MOUNTED WITH AN ERROR HANDLER AS WELL
     try {
       let res = await fetch('/isLoggedIn',{
         method: 'post',
@@ -19,29 +18,24 @@ class App extends React.Component{
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
-      });
-      
-      let result = await res.json();
-      
+      });     
+      let result = await res.json();     
       if (result && result.success){
         UserStore.loading = false;
         UserStore.isLoggedIn = true;
         UserStore.email = result.email;
       }
-
       else {
         UserStore.loading = false;
         UserStore.isLoggedIn = false;
       }
     }
-
     catch(e) {
       UserStore.loading = false;
       UserStore.isLoggedIn = false;
     }
   }
   // API CODES TO LOGOUT ON THE CLICK OF THE LOGOUT BUTTON
-
   async doLogout(){
     try {
       let res = await fetch('/logout',{
@@ -50,25 +44,18 @@ class App extends React.Component{
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
-
       });
-      
       let result = await res.json();
       
       if (result && result.success){
         UserStore.isLoggedIn = false;
         UserStore.email = '';
       }
-
     }
-
     catch(e) {
-
       console.log(e)
     }
   } 
-
-
   render(){
 
     if (UserStore.loading){
@@ -80,7 +67,6 @@ class App extends React.Component{
         </div>
       );
     }
-
     else {
       if (UserStore.isLoggedIn){
         return(
@@ -93,17 +79,14 @@ class App extends React.Component{
                 disabled = {false}
                 onClick = { () => this.doLogout()}
               />
-
             </div>
           </div>
         );
       }
-    
-
       return(
         <Router>
         <div>
-          <h2>Welcome To GloryEvents Homepage</h2>
+          <h2 className='header'>Welcome To GloryEvents Homepage</h2> 
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul className="navbar-nav mr-auto">
             <li><Link to={'/'} className="nav-link"> Home </Link></li>
@@ -123,5 +106,4 @@ class App extends React.Component{
     }
   }
 }
-
 export default observer(App);

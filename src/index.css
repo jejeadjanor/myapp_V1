@@ -5,16 +5,56 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-body, html, #root, .app, .container {
-  width: 80%;
-  height: 600px;
+.LoginForm {
+  border: solid 2px #006DE6;
+  height: 370px;
+  width: 400px;
+  margin-left: 450px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.log {
+  color: #006DE6;
   text-align: center;
+  padding-top: 35px;
+  padding-bottom: 15px;
+  font-size: x-large ;
+}
+.input {
+  color: black;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 73%;
+  
+}
+.InputField {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.btn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  width: 75%;
+  height: 35px;
+  color: white;
+  background-color: #006DE6;
+}
+.sign {
+  color: grey;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.line {
+  width: 75%;
 }
 
