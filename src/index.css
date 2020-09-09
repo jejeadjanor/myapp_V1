@@ -58,3 +58,23 @@ code {
   width: 75%;
 }
 
+nav {
+  text-align: center;
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  padding-right: 30px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover, a:active {
+    background-color: #006DE6;
+    color: white;
+  }
+

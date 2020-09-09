@@ -87,8 +87,8 @@ class App extends React.Component{
         <Router>
         <div>
           <h2 className='header'>Welcome To GloryEvents Homepage</h2> 
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <ul className="navbar-nav mr-auto">
+          <nav>
+          <ul>
             <li><Link to={'/'} className="nav-link"> Home </Link></li>
             {/* <li><Link to={'/signup'} className="nav-link">Contact</Link></li> */}
             <li><Link to={'/login'} className="nav-link">Login</Link></li>
