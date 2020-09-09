@@ -73,8 +73,9 @@ a:link {
     color: black;
   }
 
-  a:hover, a:active {
+a:hover, a:active {
     background-color: #006DE6;
     color: white;
+    padding: 5px;
   }
 
